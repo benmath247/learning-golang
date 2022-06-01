@@ -29,7 +29,8 @@ func main() {
 	var lastName string
 	var email string
 	var userTickets int
-	var bookings = [50]string{"Ben", "Yoni", "Shira"} // defining an array
+	// var bookings = [50]string{"Ben", "Yoni", "Shira"} // defining an array
+	var bookings = []string{}
 
 	fmt.Println("Choose a username: ")
 	fmt.Scan(&userName)
@@ -39,7 +40,8 @@ func main() {
 	fmt.Println("What is your last name?")
 	fmt.Scan(&lastName)
 
-	bookings[0] = firstName + " " + lastName
+	// bookings[0] = firstName + " " + lastName
+	bookings = append(bookings, firstName+" "+lastName)
 
 	fmt.Println("What is your email?")
 	fmt.Scan(&email)
@@ -60,6 +62,8 @@ func main() {
 	fmt.Printf("The first values: %v\n", bookings[0])
 	fmt.Printf("Array type: %T\n", bookings)
 	fmt.Printf("Array length: %v\n", len(bookings))
+
+	// slice is an abstraction of an array
 
 }
 
