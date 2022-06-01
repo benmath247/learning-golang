@@ -15,6 +15,7 @@ func main() {
 
 	// var conferenceA int = 1
 	// var conferenceA = -1 not possible because uint
+	var noTicketsRemaining bool = remainingTickets == 0
 
 	for {
 		fmt.Printf("Welcome to %v booking application\n", conferenceName)
@@ -70,7 +71,7 @@ func main() {
 			firstNames = append(firstNames, firstName)
 		}
 
-		if remainingTickets == 0 {
+		if noTicketsRemaining {
 			// end program
 			fmt.Println("Our conference is sold out. Come back next year.")
 			break
