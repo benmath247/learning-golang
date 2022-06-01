@@ -47,12 +47,9 @@ func main() {
 
 		fmt.Println("What is your first name?")
 		fmt.Scan(&firstName)
-		firstNames = append(firstNames, firstName)
+
 		fmt.Println("What is your last name?")
 		fmt.Scan(&lastName)
-
-		// bookings[0] = firstName + " " + lastName
-		bookings = append(bookings, firstName+" "+lastName)
 
 		fmt.Println("What is your email?")
 		fmt.Scan(&email)
@@ -60,7 +57,14 @@ func main() {
 		fmt.Println("How many tickets?")
 		fmt.Scan(&userTickets)
 
-		if userTickets < remainingTickets {
+		var isValidEmail bool = strings.Contains(email, "@")
+		var isValidName bool = len(firstName) >= 2 && len(lastName) >= 2
+		var isValidTicketNumber bool = userTickets > 0 && userTickets <= remainingTickets
+
+		if isValidEmail && isValidName && isValidTicketNumber {
+			// bookings[0] = firstName + " " + lastName
+			bookings = append(bookings, firstName+" "+lastName)
+			firstNames = append(firstNames, firstName)
 			// for remainingTickets > 0 && len(bookings) < 50 {}
 			// for true {} // infinite loop
 			fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
