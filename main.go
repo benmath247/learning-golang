@@ -60,7 +60,7 @@ func main() {
 		fmt.Println("How many tickets?")
 		fmt.Scan(&userTickets)
 
-		if userTickets <= remainingTickets {
+		if userTickets < remainingTickets {
 			fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 
 			// userName = "Tom"
@@ -78,7 +78,8 @@ func main() {
 				var firstName = names[0]
 				firstNames = append(firstNames, firstName)
 			}
-
+		} else if userTickets == remainingTickets {
+			fmt.Printf("You bought the last tickets! Enjoy the show.")
 		} else {
 			fmt.Printf("We only have %v tickets left. Please book fewer tickets.\n", remainingTickets)
 		}
