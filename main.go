@@ -84,10 +84,17 @@ func main() {
 				var firstName = names[0]
 				firstNames = append(firstNames, firstName)
 			}
-		} else if userTickets == remainingTickets {
-			fmt.Printf("You bought the last tickets! Enjoy the show.")
 		} else {
-			fmt.Printf("We only have %v tickets left. Please book fewer tickets.\n", remainingTickets)
+			if !isValidEmail {
+				fmt.Println("Invalid email.")
+			}
+			if !isValidName {
+				fmt.Println("Invalid name.")
+			}
+			if !isValidTicketNumber {
+				fmt.Println("Invalid ticket number.")
+				fmt.Printf("We only have %v tickets left. Please book fewer tickets.\n", remainingTickets)
+			}
 		}
 	}
 }
