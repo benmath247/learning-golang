@@ -61,6 +61,8 @@ func main() {
 		fmt.Scan(&userTickets)
 
 		if userTickets < remainingTickets {
+			// for remainingTickets > 0 && len(bookings) < 50 {}
+			// for true {} // infinite loop
 			fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 
 			// userName = "Tom"
