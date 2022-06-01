@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"GOLANG/hello"
 )
 
 func main() {
@@ -31,15 +30,16 @@ func main() {
 	var email string
 	var userTickets int
 	var bookings = [50]string{"Ben", "Yoni", "Shira"} // defining an array
-	
+
 	fmt.Println("Choose a username: ")
 	fmt.Scan(&userName)
 
 	fmt.Println("What is your first name?")
 	fmt.Scan(&firstName)
-	
 	fmt.Println("What is your last name?")
 	fmt.Scan(&lastName)
+
+	bookings[0] = firstName + " " + lastName
 
 	fmt.Println("What is your email?")
 	fmt.Scan(&email)
@@ -55,6 +55,11 @@ func main() {
 	remainingTickets = remainingTickets - userTickets
 
 	fmt.Println(Hello("Ben"))
+
+	fmt.Printf("The whole array: %v\n", bookings)
+	fmt.Printf("The first values: %v\n", bookings[0])
+	fmt.Printf("Array type: %T\n", bookings)
+	fmt.Printf("Array length: %v\n", len(bookings))
 
 }
 
