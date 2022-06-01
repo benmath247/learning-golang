@@ -12,58 +12,56 @@ func main() {
 	var remainingTickets = 50
 	// fmt.Println("Welcome to", conferenceName, "booking application")
 
-	fmt.Printf("Welcome to %v booking application", conferenceName)
-	fmt.Println("We have", conferenceTickets, "tickets and", remainingTickets, "are still available")
-	fmt.Println("Get your tickets here to attend")
-
-	// Get type
-	fmt.Printf("ConferenceTickets: %T\n", conferenceTickets)
-
 	// var conferenceA int = 1
 	// var conferenceA = -1 not possible because uint
 
-	conferenceTickets = 30
+	for {
+		fmt.Printf("Welcome to %v booking application\n", conferenceName)
+		fmt.Println("We have", conferenceTickets, "tickets and", remainingTickets, "are still available")
+		fmt.Println("Get your tickets here to attend")
 
-	var userName string
-	var firstName string
-	var lastName string
-	var email string
-	var userTickets int
-	// var bookings = [50]string{"Ben", "Yoni", "Shira"} // defining an array
-	var bookings = []string{}
+		// Get type
+		// fmt.Printf("ConferenceTickets: %T\n", conferenceTickets)
 
-	fmt.Println("Choose a username: ")
-	fmt.Scan(&userName)
+		var userName string
+		var firstName string
+		var lastName string
+		var email string
+		var userTickets int
+		// var bookings = [50]string{"Ben", "Yoni", "Shira"} // defining an array
+		var bookings = []string{}
 
-	fmt.Println("What is your first name?")
-	fmt.Scan(&firstName)
-	fmt.Println("What is your last name?")
-	fmt.Scan(&lastName)
+		fmt.Println("Choose a username: ")
+		fmt.Scan(&userName)
+		fmt.Println(Hello(userName))
 
-	// bookings[0] = firstName + " " + lastName
-	bookings = append(bookings, firstName+" "+lastName)
+		fmt.Println("What is your first name?")
+		fmt.Scan(&firstName)
+		fmt.Println("What is your last name?")
+		fmt.Scan(&lastName)
 
-	fmt.Println("What is your email?")
-	fmt.Scan(&email)
+		// bookings[0] = firstName + " " + lastName
+		bookings = append(bookings, firstName+" "+lastName)
 
-	fmt.Println("How many tickets?")
-	fmt.Scan(&userTickets)
+		fmt.Println("What is your email?")
+		fmt.Scan(&email)
 
-	fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+		fmt.Println("How many tickets?")
+		fmt.Scan(&userTickets)
 
-	// userName = "Tom"
-	fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
+		fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
 
-	remainingTickets = remainingTickets - userTickets
+		// userName = "Tom"
+		fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
 
-	fmt.Println(Hello("Ben"))
+		remainingTickets = remainingTickets - userTickets
+		// fmt.Printf("The whole array: %v\n", bookings)
+		// fmt.Printf("The first values: %v\n", bookings[0])
+		// fmt.Printf("Array type: %T\n", bookings)
+		// fmt.Printf("Array length: %v\n", len(bookings))
 
-	fmt.Printf("The whole array: %v\n", bookings)
-	fmt.Printf("The first values: %v\n", bookings[0])
-	fmt.Printf("Array type: %T\n", bookings)
-	fmt.Printf("Array length: %v\n", len(bookings))
-
-	// slice is an abstraction of an array
+		// slice is an abstraction of an array
+	}
 
 }
 
