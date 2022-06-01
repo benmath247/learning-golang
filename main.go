@@ -15,9 +15,16 @@ func main() {
 
 	// var conferenceA int = 1
 	// var conferenceA = -1 not possible because uint
-	var noTicketsRemaining bool = remainingTickets == 0
 
 	for {
+		var noTicketsRemaining bool = remainingTickets == 0
+
+		if noTicketsRemaining {
+			// end program
+			fmt.Println("Our conference is sold out. Come back next year.")
+			break
+		}
+
 		fmt.Printf("Welcome to %v booking application\n", conferenceName)
 		fmt.Println("We have", conferenceTickets, "tickets and", remainingTickets, "are still available")
 		fmt.Println("Get your tickets here to attend")
@@ -53,36 +60,29 @@ func main() {
 		fmt.Println("How many tickets?")
 		fmt.Scan(&userTickets)
 
-		if userTickets > remainingTickets {
+		if userTickets <= remainingTickets {
+			fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
+
+			// userName = "Tom"
+			fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
+
+			remainingTickets = remainingTickets - userTickets
+			// fmt.Printf("The whole array: %v\n", bookings)
+			// fmt.Printf("The first values: %v\n", bookings[0])
+			// fmt.Printf("Array type: %T\n", bookings)
+			// fmt.Printf("Array length: %v\n", len(bookings))
+
+			// slice is an abstraction of an array
+			for _, booking := range bookings {
+				var names = strings.Fields(booking)
+				var firstName = names[0]
+				firstNames = append(firstNames, firstName)
+			}
+
+		} else {
 			fmt.Printf("We only have %v tickets left. Please book fewer tickets.\n", remainingTickets)
-			continue
-		}
-
-		fmt.Printf("Thank you, %v %v, for booking %v tickets. You will receive a confirmation email at %v\n", firstName, lastName, userTickets, email)
-
-		// userName = "Tom"
-		fmt.Printf("User %v booked %v tickets.\n", userName, userTickets)
-
-		remainingTickets = remainingTickets - userTickets
-		// fmt.Printf("The whole array: %v\n", bookings)
-		// fmt.Printf("The first values: %v\n", bookings[0])
-		// fmt.Printf("Array type: %T\n", bookings)
-		// fmt.Printf("Array length: %v\n", len(bookings))
-
-		// slice is an abstraction of an array
-		for _, booking := range bookings {
-			var names = strings.Fields(booking)
-			var firstName = names[0]
-			firstNames = append(firstNames, firstName)
-		}
-
-		if noTicketsRemaining {
-			// end program
-			fmt.Println("Our conference is sold out. Come back next year.")
-			break
 		}
 	}
-
 }
 
 // Hello returns a greeting for the named person.
