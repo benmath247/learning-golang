@@ -69,6 +69,12 @@ func main() {
 			var firstName = names[0]
 			firstNames = append(firstNames, firstName)
 		}
+
+		if remainingTickets == 0 {
+			// end program
+			fmt.Println("Our conference is sold out. Come back next year.")
+			break
+		}
 	}
 
 }
