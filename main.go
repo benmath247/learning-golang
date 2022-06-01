@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -30,6 +31,7 @@ func main() {
 		var userTickets int
 		// var bookings = [50]string{"Ben", "Yoni", "Shira"} // defining an array
 		var bookings = []string{}
+		var firstNames = []string{}
 
 		fmt.Println("Choose a username: ")
 		fmt.Scan(&userName)
@@ -37,6 +39,7 @@ func main() {
 
 		fmt.Println("What is your first name?")
 		fmt.Scan(&firstName)
+		firstNames = append(firstNames, firstName)
 		fmt.Println("What is your last name?")
 		fmt.Scan(&lastName)
 
@@ -61,6 +64,11 @@ func main() {
 		// fmt.Printf("Array length: %v\n", len(bookings))
 
 		// slice is an abstraction of an array
+		for _, booking := range bookings {
+			var names = strings.Fields(booking)
+			var firstName = names[0]
+			firstNames = append(firstNames, firstName)
+		}
 	}
 
 }
